@@ -50,8 +50,12 @@ Implemented now:
 - `series-enchantment`
 - `series-potion`
 - `series-biome`
+- `series-villager-profession`
+- `series-attribute`
 - `series-entity`
 - `series-game-mode`
+- `series-difficulty`
+- `series-blockface`
 - `series-particle`
 - `series-statistic`
 - `series-all`
@@ -65,26 +69,25 @@ The next DaisySeries wave should stay focused on modern Paper parser families th
 
 These are the strongest current candidates for the next implementation wave:
 
-- `series-villager-profession`
-- `series-attribute`
-- `series-difficulty`
-- `series-blockface`
+- `series-damage-cause`
+- `series-operation`
+- `series-pattern-type`
 
 ### Tier B: plausible later candidates
 
 These still fit DaisySeries, but they are weaker follow-ups than Tier A:
 
-- `series-damage-cause`
-- `series-operation`
-- `series-pattern-type`
+- `series-world-type`
+- `series-villager-type`
+- `series-map-cursor-type`
 
 ### Tier C: intentionally out of scope for now
 
 These should stay out unless repeated real plugin needs prove otherwise:
 
-- `series-world-type`
 - broad legacy compatibility helpers
 - arbitrary enum families that do not materially benefit from aliases or canonical keys
+- helpers that leak config or runtime ownership into DaisySeries
 
 ## End-State Design Standard
 
@@ -114,13 +117,10 @@ That means DaisySeries should stay honest:
 ```kotlin
 val icon = DaisyMaterials.parse(config.icon)
 val flags = DaisyItemFlags.parseMany(config.flags)
-val enchantment = DaisyEnchantments.parse(config.enchantment)
-val effect = DaisyPotions.parse(config.effect)
+val profession = DaisyVillagerProfessions.parse(config.profession)
+val attribute = DaisyAttributes.parse(config.attribute)
+val difficulty = DaisyDifficulties.parse(config.difficulty)
 val sound = DaisySounds.parse(config.feedbackSound)
-
-logger.info("Icon: ${DaisyMaterials.displayName(icon)}")
-logger.info("Enchant: ${DaisyEnchantments.displayName(enchantment)}")
-logger.info("Effect: ${DaisyPotions.displayName(effect)}")
 ```
 
 The plugin author should not need:

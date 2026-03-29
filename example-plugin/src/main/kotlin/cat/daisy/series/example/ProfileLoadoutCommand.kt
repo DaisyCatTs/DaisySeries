@@ -1,6 +1,9 @@
 package cat.daisy.series.example
 
+import cat.daisy.series.attribute.DaisyAttributes
 import cat.daisy.series.biome.DaisyBiomes
+import cat.daisy.series.blockface.DaisyBlockFaces
+import cat.daisy.series.difficulty.DaisyDifficulties
 import cat.daisy.series.itemflag.DaisyItemFlags
 import cat.daisy.series.enchantment.DaisyEnchantments
 import cat.daisy.series.entity.DaisyEntities
@@ -10,6 +13,7 @@ import cat.daisy.series.particle.DaisyParticles
 import cat.daisy.series.potion.DaisyPotions
 import cat.daisy.series.sound.DaisySounds
 import cat.daisy.series.statistic.DaisyStatistics
+import cat.daisy.series.villagerprofession.DaisyVillagerProfessions
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -37,6 +41,10 @@ class ProfileLoadoutCommand : CommandExecutor {
         val gameMode = DaisyGameModes.parse(ExampleSeriesConfig.gameMode)
         val particle = DaisyParticles.parse(ExampleSeriesConfig.particle)
         val statistic = DaisyStatistics.parse(ExampleSeriesConfig.statistic)
+        val profession = DaisyVillagerProfessions.parse(ExampleSeriesConfig.villagerProfession)
+        val attribute = DaisyAttributes.parse(ExampleSeriesConfig.attribute)
+        val difficulty = DaisyDifficulties.parse(ExampleSeriesConfig.difficulty)
+        val blockFace = DaisyBlockFaces.parse(ExampleSeriesConfig.blockFace)
 
         sender.sendMessage("Icon: ${DaisyMaterials.displayName(icon)} (${DaisyMaterials.key(icon)})")
         sender.sendMessage("Sound: ${DaisySounds.displayName(sound)} (${DaisySounds.key(sound)})")
@@ -48,6 +56,10 @@ class ProfileLoadoutCommand : CommandExecutor {
         sender.sendMessage("Game mode: ${DaisyGameModes.displayName(gameMode)} (${DaisyGameModes.key(gameMode)})")
         sender.sendMessage("Particle: ${DaisyParticles.displayName(particle)} (${DaisyParticles.key(particle)})")
         sender.sendMessage("Statistic: ${DaisyStatistics.displayName(statistic)} (${DaisyStatistics.key(statistic)})")
+        sender.sendMessage("Profession: ${DaisyVillagerProfessions.displayName(profession)} (${DaisyVillagerProfessions.key(profession)})")
+        sender.sendMessage("Attribute: ${DaisyAttributes.displayName(attribute)} (${DaisyAttributes.key(attribute)})")
+        sender.sendMessage("Difficulty: ${DaisyDifficulties.displayName(difficulty)} (${DaisyDifficulties.key(difficulty)})")
+        sender.sendMessage("Facing: ${DaisyBlockFaces.displayName(blockFace)} (${DaisyBlockFaces.key(blockFace)})")
         return true
     }
 }

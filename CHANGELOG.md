@@ -1,8 +1,23 @@
 ## [Unreleased]
 
 ### Planned
-- gap audit for the next modern parser wave
-- release follow-up docs comparing DaisySeries to local helper glue and XSeries-style usage
+- next parser-wave evaluation around damage causes, operations, and pattern types
+- more cross-product examples using the expanded parser family
+
+## [0.3.0]
+
+### Added
+- `series-villager-profession`
+- `series-attribute`
+- `series-difficulty`
+- `series-blockface`
+- DaisySeries example updates for villager professions, attributes, difficulties, and block faces
+- DaisyConfig codec integration for villager professions, attributes, difficulties, and block faces
+- DaisySeries docs, dictionary pages, and API references for the second-wave parser family
+
+### Changed
+- DaisySeries migration guidance now treats the second-wave families as part of the modern Paper parser surface
+- the DaisySeries gap audit now classifies the next plausible families instead of leaving the second wave as planning-only work
 
 ## [0.2.0]
 

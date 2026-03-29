@@ -1,5 +1,5 @@
 name: DaisySeriesExample
-version: 0.2.0
+version: 0.3.0
 main: cat.daisy.series.example.DaisySeriesExamplePlugin
 api-version: "1.21"
 description: Shows DaisySeries canonical parsing for config-heavy modern Paper values.
