@@ -57,21 +57,34 @@ Implemented now:
 - `series-all`
 - `series-base`
 
-## Expected Future Module Family
+## Modern Gap Audit
 
-Still plausible next DaisySeries candidates:
+The next DaisySeries wave should stay focused on modern Paper parser families that are clearly reusable and clearly helped by canonical keys plus normalization.
+
+### Tier A: next-wave candidates
+
+These are the strongest current candidates for the next implementation wave:
 
 - `series-villager-profession`
-- `series-damage-cause`
-
-Potential second wave if there is real reuse:
-
-- `series-blockface`
 - `series-attribute`
+- `series-difficulty`
+- `series-blockface`
+
+### Tier B: plausible later candidates
+
+These still fit DaisySeries, but they are weaker follow-ups than Tier A:
+
+- `series-damage-cause`
 - `series-operation`
 - `series-pattern-type`
-- `series-difficulty`
+
+### Tier C: intentionally out of scope for now
+
+These should stay out unless repeated real plugin needs prove otherwise:
+
 - `series-world-type`
+- broad legacy compatibility helpers
+- arbitrary enum families that do not materially benefit from aliases or canonical keys
 
 ## End-State Design Standard
 
@@ -127,6 +140,7 @@ DaisySeries should not become:
 - a kitchen-sink compatibility swamp
 - a legacy-name museum
 - a replacement for DaisyCore
+- a dumping ground for every Bukkit enum
 
 ## Success Criteria
 
