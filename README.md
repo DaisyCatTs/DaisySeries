@@ -124,6 +124,11 @@ The current DaisySeries family now includes:
 - Migration guide: [MIGRATION.md](./MIGRATION.md)
 - Changelog: [CHANGELOG.md](./CHANGELOG.md)
 
+## Related Projects
+
+- [DaisyCore](https://github.com/DaisyCatTs/DaisyCore): the Kotlin-first Paper runtime platform for commands, menus, sidebars, tablists, and shared text
+- [DaisyConfig](https://github.com/DaisyCatTs/DaisyConfig): typed YAML config loading and DaisyCore-friendly text/config integration
+
 ## License
 
 MIT
