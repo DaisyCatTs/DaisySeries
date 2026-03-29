@@ -29,6 +29,10 @@ include(
     "series-game-mode",
     "series-particle",
     "series-statistic",
+    "series-villager-profession",
+    "series-attribute",
+    "series-difficulty",
+    "series-blockface",
     "series-all",
     "example-plugin",
 )

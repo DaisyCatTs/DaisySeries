@@ -19,8 +19,12 @@ This release ships a broader modern parsing pack for:
 - Enchantments
 - Potions
 - Biomes
+- Villager professions
+- Attributes
 - Entity types
 - Game modes
+- Difficulties
+- Block faces
 - Particles
 - Statistics
 
@@ -34,25 +38,29 @@ repositories {
 }
 
 dependencies {
-    implementation("cat.daisy:DaisySeries:0.2.0")
+    implementation("cat.daisy:DaisySeries:0.3.0")
 }
 ```
 
-DaisySeries `0.2.0` is the first formal release of the modern parser surface. It is meant to be the focused modern Paper alternative to plugin-local enum glue and XSeries-style parsing helpers, not a legacy compatibility museum.
+DaisySeries `0.3.0` is the second formal release of the modern parser surface. It is meant to be the focused modern Paper alternative to plugin-local enum glue and XSeries-style parsing helpers, not a legacy compatibility museum.
 
 Or install a narrower module:
 
 ```kotlin
-implementation("cat.daisy:series-material:0.2.0")
-implementation("cat.daisy:series-sound:0.2.0")
-implementation("cat.daisy:series-itemflag:0.2.0")
-implementation("cat.daisy:series-enchantment:0.2.0")
-implementation("cat.daisy:series-potion:0.2.0")
-implementation("cat.daisy:series-biome:0.2.0")
-implementation("cat.daisy:series-entity:0.2.0")
-implementation("cat.daisy:series-game-mode:0.2.0")
-implementation("cat.daisy:series-particle:0.2.0")
-implementation("cat.daisy:series-statistic:0.2.0")
+implementation("cat.daisy:series-material:0.3.0")
+implementation("cat.daisy:series-sound:0.3.0")
+implementation("cat.daisy:series-itemflag:0.3.0")
+implementation("cat.daisy:series-enchantment:0.3.0")
+implementation("cat.daisy:series-potion:0.3.0")
+implementation("cat.daisy:series-biome:0.3.0")
+implementation("cat.daisy:series-villager-profession:0.3.0")
+implementation("cat.daisy:series-attribute:0.3.0")
+implementation("cat.daisy:series-entity:0.3.0")
+implementation("cat.daisy:series-game-mode:0.3.0")
+implementation("cat.daisy:series-difficulty:0.3.0")
+implementation("cat.daisy:series-blockface:0.3.0")
+implementation("cat.daisy:series-particle:0.3.0")
+implementation("cat.daisy:series-statistic:0.3.0")
 ```
 
 ## Quick example
@@ -64,21 +72,21 @@ val flags = DaisyItemFlags.parseMany(listOf("hide enchants", "hide attributes"))
 val enchantment = DaisyEnchantments.parse("sharpness")
 val effect = DaisyPotions.parse("slow falling")
 val biome = DaisyBiomes.parse("cherry grove")
+val profession = DaisyVillagerProfessions.parse("tool smith")
+val attribute = DaisyAttributes.parse("attack damage")
 val entity = DaisyEntities.parse("zombie villager")
 val gameMode = DaisyGameModes.parse("surv")
+val difficulty = DaisyDifficulties.parse("hard")
+val blockFace = DaisyBlockFaces.parse("north-east")
 val particle = DaisyParticles.parse("totem")
 val statistic = DaisyStatistics.parse("player kills")
 
 logger.info("Icon: ${DaisyMaterials.displayName(icon)} (${DaisyMaterials.key(icon)})")
 logger.info("Sound: ${DaisySounds.displayName(sound)}")
-logger.info("Flags: ${flags.joinToString { DaisyItemFlags.displayName(it) }}")
-logger.info("Enchant: ${DaisyEnchantments.displayName(enchantment)}")
-logger.info("Effect: ${DaisyPotions.displayName(effect)}")
-logger.info("Biome: ${DaisyBiomes.displayName(biome)}")
-logger.info("Entity: ${DaisyEntities.displayName(entity)}")
-logger.info("Game mode: ${DaisyGameModes.displayName(gameMode)}")
-logger.info("Particle: ${DaisyParticles.displayName(particle)}")
-logger.info("Statistic: ${DaisyStatistics.displayName(statistic)}")
+logger.info("Profession: ${DaisyVillagerProfessions.displayName(profession)}")
+logger.info("Attribute: ${DaisyAttributes.displayName(attribute)}")
+logger.info("Difficulty: ${DaisyDifficulties.displayName(difficulty)}")
+logger.info("Facing: ${DaisyBlockFaces.displayName(blockFace)}")
 ```
 
 ## IntelliJ Setup
@@ -109,13 +117,23 @@ Examples:
 - `diamond sword`
 - `diamond-sword`
 - `minecraft:diamond_sword`
-- `sharpness`
-- `slow_falling`
+- `attack_damage`
+- `tool smith`
+- `north-east`
 
 ## Runtime note
 
-`DaisyEnchantments`, `DaisyPotions`, and some newer registry-sensitive families resolve against live Paper behavior at runtime.
-That means their successful parsing path is intended for real plugin execution on Paper, while plain JVM unit tests cover normalization, suggestions, and fail-soft behavior where Paper bootstrap is not available.
+Some DaisySeries families are safe to resolve directly in plain JVM tests.
+
+Some modern Paper families are registry-sensitive enough that successful parsing should be treated as live runtime behavior instead:
+
+- enchantments
+- potion effects
+- biomes
+- villager professions
+- attributes
+
+That means DaisySeries keeps unit tests focused on normalization, suggestions, and fail-soft behavior where Paper bootstrap is not available.
 
 ## What DaisySeries does not do
 
@@ -142,20 +160,24 @@ The current DaisySeries family now includes:
 - Enchantments
 - Potions
 - Biomes
+- Villager professions
+- Attributes
 - Entity types
 - Game modes
+- Difficulties
+- Block faces
 - Particles
 - Statistics
 
 ## What comes next
 
-The next DaisySeries implementation wave is not open-ended. The current audit direction is:
+The next DaisySeries implementation wave is smaller and more selective. The current likely follow-ups are:
 
-- **Next-wave candidates**: villager professions, attributes, difficulties, and block faces
-- **Likely later**: damage causes, operations, and pattern types
-- **Currently out of scope unless a strong need appears**: world types and broad legacy compatibility helpers
+- damage causes
+- operations
+- pattern types
 
-See [DAISYSERIES_FINAL_GOAL.md](./DAISYSERIES_FINAL_GOAL.md) for the reasoning and guardrails.
+These are plausible additions. They are not automatic. DaisySeries should only keep growing where canonical keys and normalization materially improve real plugin code.
 
 ## Vision
 

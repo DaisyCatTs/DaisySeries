@@ -127,6 +127,38 @@ project(":series-statistic") {
     }
 }
 
+project(":series-villager-profession") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-attribute") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-difficulty") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-blockface") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
 project(":series-all") {
     dependencies {
         add("api", project(":series-material"))
@@ -139,6 +171,10 @@ project(":series-all") {
         add("api", project(":series-game-mode"))
         add("api", project(":series-particle"))
         add("api", project(":series-statistic"))
+        add("api", project(":series-villager-profession"))
+        add("api", project(":series-attribute"))
+        add("api", project(":series-difficulty"))
+        add("api", project(":series-blockface"))
     }
 }
 

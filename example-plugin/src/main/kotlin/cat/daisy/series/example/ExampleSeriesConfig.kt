@@ -11,4 +11,8 @@ object ExampleSeriesConfig {
     val gameMode: String = "surv"
     val particle: String = "totem"
     val statistic: String = "player kills"
+    val villagerProfession: String = "tool smith"
+    val attribute: String = "attack damage"
+    val difficulty: String = "hard"
+    val blockFace: String = "north-east"
 }
