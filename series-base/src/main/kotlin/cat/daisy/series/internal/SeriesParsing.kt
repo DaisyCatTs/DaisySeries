@@ -4,17 +4,25 @@ import cat.daisy.series.DaisyParseFailure
 import cat.daisy.series.DaisySeriesParseException
 import java.util.Locale
 
+data class SeriesCandidate<T>(
+    val key: String,
+    val value: T,
+    val aliases: Set<String> = emptySet(),
+)
+
 fun normalizeSeriesInput(input: String): String {
     val trimmed = input.trim()
-    val withoutNamespace = trimmed.substringAfter(':', trimmed)
-    return withoutNamespace
+    return normalizeSeriesKey(trimmed.substringAfter(':', trimmed))
+}
+
+fun enumKey(name: String): String = name.lowercase(Locale.ROOT)
+
+fun normalizeSeriesKey(input: String): String =
+    input
         .lowercase(Locale.ROOT)
         .replace(Regex("[\\s\\-]+"), "_")
         .replace(Regex("_+"), "_")
         .trim('_')
-}
-
-fun enumKey(name: String): String = name.lowercase(Locale.ROOT)
 
 fun displayNameFromKey(key: String): String =
     key.split('_')
@@ -79,6 +87,18 @@ fun buildUnknownFailure(
         ),
     )
 }
+
+fun <T> lookupCandidates(
+    values: Iterable<SeriesCandidate<T>>,
+): Map<String, T> =
+    buildMap {
+        values.forEach { candidate ->
+            put(candidate.key, candidate.value)
+            candidate.aliases.forEach { alias ->
+                put(normalizeSeriesKey(alias), candidate.value)
+            }
+        }
+    }
 
 private fun levenshtein(left: String, right: String): Int {
     if (left == right) return 0

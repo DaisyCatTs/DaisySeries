@@ -3,6 +3,7 @@ package cat.daisy.series
 import cat.daisy.series.internal.buildUnknownFailure
 import cat.daisy.series.internal.displayNameFromKey
 import cat.daisy.series.internal.normalizeSeriesInput
+import cat.daisy.series.internal.normalizeSeriesKey
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -11,6 +12,11 @@ class SeriesParsingTest {
     @Test
     fun `normalization handles spaces hyphens uppercase and namespaces`() {
         assertEquals("diamond_sword", normalizeSeriesInput(" Minecraft:Diamond-Sword "))
+    }
+
+    @Test
+    fun `series keys normalize mixed separators`() {
+        assertEquals("fire_resistance", normalizeSeriesKey(" Fire-Resistance "))
     }
 
     @Test
@@ -25,4 +31,3 @@ class SeriesParsingTest {
         assertTrue(exception.message!!.contains("Unknown material 'diamond sord'"))
     }
 }
-

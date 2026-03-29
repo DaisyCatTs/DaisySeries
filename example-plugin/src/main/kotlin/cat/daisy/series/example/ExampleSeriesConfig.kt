@@ -4,5 +4,6 @@ object ExampleSeriesConfig {
     val icon: String = "diamond sword"
     val feedbackSound: String = "levelup"
     val flags: List<String> = listOf("hide enchants", "hide attributes")
+    val enchantment: String = "sharpness"
+    val effect: String = "slow falling"
 }
-
