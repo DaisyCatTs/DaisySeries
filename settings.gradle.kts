@@ -22,7 +22,8 @@ include(
     "series-material",
     "series-sound",
     "series-itemflag",
+    "series-enchantment",
+    "series-potion",
     "series-all",
     "example-plugin",
 )
-

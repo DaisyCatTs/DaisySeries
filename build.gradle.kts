@@ -42,6 +42,8 @@ subprojects {
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
+        maxParallelForks = 1
+        maxHeapSize = "256m"
     }
 }
 
@@ -69,11 +71,29 @@ project(":series-itemflag") {
     }
 }
 
+project(":series-enchantment") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-potion") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
 project(":series-all") {
     dependencies {
         add("api", project(":series-material"))
         add("api", project(":series-sound"))
         add("api", project(":series-itemflag"))
+        add("api", project(":series-enchantment"))
+        add("api", project(":series-potion"))
     }
 }
 
