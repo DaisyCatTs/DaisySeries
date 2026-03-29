@@ -87,6 +87,46 @@ project(":series-potion") {
     }
 }
 
+project(":series-biome") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-entity") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-game-mode") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-particle") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-statistic") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
 project(":series-all") {
     dependencies {
         add("api", project(":series-material"))
@@ -94,6 +134,11 @@ project(":series-all") {
         add("api", project(":series-itemflag"))
         add("api", project(":series-enchantment"))
         add("api", project(":series-potion"))
+        add("api", project(":series-biome"))
+        add("api", project(":series-entity"))
+        add("api", project(":series-game-mode"))
+        add("api", project(":series-particle"))
+        add("api", project(":series-statistic"))
     }
 }
 

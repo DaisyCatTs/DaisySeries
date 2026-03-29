@@ -8,6 +8,7 @@ DaisySeries replaces the repetitive enum parsing helpers that normal plugin proj
 - hand-written alias maps
 - ad hoc lowercase serialization
 - one-off friendly-name helpers
+- XSeries-style utility glue for modern Paper-only projects
 
 ## Replace `Material.valueOf(...)`
 
@@ -68,3 +69,27 @@ Instead of local potion-effect wrappers:
 ```kotlin
 val effect = DaisyPotions.parse(config.effect)
 ```
+
+## Add biome, entity, particle, game-mode, and statistic parsing
+
+The same replacement pattern now covers more of the modern Paper surface:
+
+```kotlin
+val biome = DaisyBiomes.parse(config.biome)
+val entity = DaisyEntities.parse(config.entity)
+val gameMode = DaisyGameModes.parse(config.defaultGameMode)
+val particle = DaisyParticles.parse(config.particle)
+val statistic = DaisyStatistics.parse(config.statistic)
+```
+
+## Why DaisySeries instead of XSeries-style glue
+
+For modern Minecraft, DaisySeries is trying to win on:
+
+- Kotlin-first APIs
+- stable canonical lowercase keys
+- curated aliases instead of giant legacy maps
+- stronger docs and migration guidance
+- cleaner integration with DaisyConfig and DaisyCore
+
+It is not trying to win by recreating every historical compatibility edge from older helper libraries.
