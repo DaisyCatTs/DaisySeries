@@ -162,6 +162,32 @@ DaisySeries is modern Paper-first on purpose.
 
 That also means DaisySeries is not trying to win by recreating every legacy-era XSeries edge. The target is the modern Minecraft parsing layer you actually want to build on now: modern Paper-first, canonical-key-first, and small enough to stay coherent.
 
+## Why DaisySeries is selective
+
+DaisySeries is supposed to be the clean modern parser layer, not the biggest enum wrapper.
+
+A new family belongs in DaisySeries only when it is:
+
+- used repeatedly across real modern plugins
+- commonly config-backed or serialized
+- materially improved by normalization or canonical keys
+- a clean fit for the standard parser contract
+
+If a family is niche, mostly hardcoded, mainly runtime-owned, or only useful once, it should stay out.
+
+## What DaisySeries will not add
+
+DaisySeries does not exist to provide:
+
+- every Bukkit or Paper enum family
+- broad legacy-version compatibility helpers
+- giant alias maps for every historical naming scheme
+- config loading
+- runtime feature ownership
+- random utility wrappers that do not meaningfully improve repeated plugin code
+
+The product wins by being modern, useful, and repeatable, not by having the longest module list.
+
 ## Example plugin
 
 See [`example-plugin`](./example-plugin) for a small copyable Paper example using the starter-pack modules together.
@@ -190,13 +216,15 @@ The current DaisySeries family now includes:
 
 ## What comes next
 
-The next DaisySeries implementation wave should stay smaller and more selective. The current likely follow-ups after this release are:
+The next DaisySeries implementation wave should stay smaller and more selective.
+
+Current tracked candidates:
 
 - world types
 - villager types
 - map cursor types
 
-These are candidates, not promises. DaisySeries should only keep growing where canonical keys and normalization materially improve real plugin code.
+These are candidates, not promises. None should be implemented until they clear the formal inclusion gate and prove repeated modern-plugin usefulness.
 
 ## Vision
 
