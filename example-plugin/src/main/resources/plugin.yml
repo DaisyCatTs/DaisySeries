@@ -2,7 +2,7 @@ name: DaisySeriesExample
 version: 0.1.0-SNAPSHOT
 main: cat.daisy.series.example.DaisySeriesExamplePlugin
 api-version: "1.21"
+description: Shows DaisySeries canonical parsing for config-heavy modern Paper values.
 commands:
   profileloadout:
     description: Shows a DaisySeries config-style parsing example.
-
