@@ -59,6 +59,19 @@ logger.info("Enchant: ${DaisyEnchantments.displayName(enchantment)}")
 logger.info("Effect: ${DaisyPotions.displayName(effect)}")
 ```
 
+## IntelliJ Setup
+
+- Open the repo as a Gradle project in IntelliJ IDEA.
+- Use the checked-in Gradle wrapper.
+- Recommended JDK: Java 21.
+- On this machine and similar Windows setups, Corretto 21 has been the safest local verification JDK.
+- Useful Gradle runs from IntelliJ or the terminal:
+
+```bash
+./gradlew.bat --no-daemon test
+./gradlew.bat --no-daemon :example-plugin:compileKotlin
+```
+
 ## Parsing rules
 
 - accepts lowercase input
