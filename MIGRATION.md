@@ -93,3 +93,39 @@ For modern Minecraft, DaisySeries is trying to win on:
 - cleaner integration with DaisyConfig and DaisyCore
 
 It is not trying to win by recreating every historical compatibility edge from older helper libraries.
+
+## Adopt incrementally
+
+You do not need to replace every helper at once.
+
+The normal migration order is:
+
+1. replace the worst local `valueOf(...)` wrappers first
+2. replace scattered alias maps for the families DaisySeries already ships
+3. standardize serialization on `key(...)`
+4. pull DaisyConfig in later only if those values need typed YAML or managed lifecycle
+5. pull DaisyCore in later only if those parsed values feed runtime systems
+
+That keeps DaisySeries as the parser layer only, which is the intended boundary.
+
+## Current scope vs future scope
+
+DaisySeries already covers the modern parser families most config-heavy plugins hit first:
+
+- materials
+- sounds
+- item flags
+- enchantments
+- potion effects
+- biomes
+- entity types
+- game modes
+- particles
+- statistics
+
+The next-wave shortlist is intentionally smaller than "everything XSeries ever touched." Right now the strongest follow-up candidates are:
+
+- villager professions
+- attributes
+- difficulties
+- block faces

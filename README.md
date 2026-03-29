@@ -11,7 +11,7 @@ DaisySeries removes the boring helper layer every plugin ends up rebuilding for 
 - expose UI-friendly display names
 - support a small curated alias set where it genuinely helps
 
-This snapshot now ships a broader modern parsing pack for:
+This release ships a broader modern parsing pack for:
 
 - Materials
 - Sounds
@@ -34,25 +34,25 @@ repositories {
 }
 
 dependencies {
-    implementation("cat.daisy:DaisySeries:0.1.0-SNAPSHOT")
+    implementation("cat.daisy:DaisySeries:0.2.0")
 }
 ```
 
-`0.1.0-SNAPSHOT` is intentional right now. DaisySeries is still in the suite polish phase while the product story, migration guidance, and cross-product examples are being tightened around the current modern Paper surface.
+DaisySeries `0.2.0` is the first formal release of the modern parser surface. It is meant to be the focused modern Paper alternative to plugin-local enum glue and XSeries-style parsing helpers, not a legacy compatibility museum.
 
 Or install a narrower module:
 
 ```kotlin
-implementation("cat.daisy:series-material:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-sound:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-itemflag:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-enchantment:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-potion:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-biome:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-entity:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-game-mode:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-particle:0.1.0-SNAPSHOT")
-implementation("cat.daisy:series-statistic:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-material:0.2.0")
+implementation("cat.daisy:series-sound:0.2.0")
+implementation("cat.daisy:series-itemflag:0.2.0")
+implementation("cat.daisy:series-enchantment:0.2.0")
+implementation("cat.daisy:series-potion:0.2.0")
+implementation("cat.daisy:series-biome:0.2.0")
+implementation("cat.daisy:series-entity:0.2.0")
+implementation("cat.daisy:series-game-mode:0.2.0")
+implementation("cat.daisy:series-particle:0.2.0")
+implementation("cat.daisy:series-statistic:0.2.0")
 ```
 
 ## Quick example
@@ -114,8 +114,8 @@ Examples:
 
 ## Runtime note
 
-`DaisyEnchantments` and `DaisyPotions` resolve against the live Paper registry at runtime.
-That means their successful parsing path is intended for real plugin execution on Paper, while plain JVM unit tests cover the normalization, suggestion, and fail-soft behavior around those modules.
+`DaisyEnchantments`, `DaisyPotions`, and some newer registry-sensitive families resolve against live Paper behavior at runtime.
+That means their successful parsing path is intended for real plugin execution on Paper, while plain JVM unit tests cover normalization, suggestions, and fail-soft behavior where Paper bootstrap is not available.
 
 ## What DaisySeries does not do
 
@@ -124,9 +124,9 @@ That means their successful parsing path is intended for real plugin execution o
 - it does not try to solve every legacy-version enum rename
 - it does not return aliases as canonical output
 
-The first snapshot is modern Paper-first on purpose.
+DaisySeries is modern Paper-first on purpose.
 
-That also means DaisySeries is not trying to win by recreating every legacy-era XSeries edge. The target is the modern Minecraft parsing layer you actually want to build on now.
+That also means DaisySeries is not trying to win by recreating every legacy-era XSeries edge. The target is the modern Minecraft parsing layer you actually want to build on now: modern Paper-first, canonical-key-first, and small enough to stay coherent.
 
 ## Example plugin
 
@@ -146,6 +146,16 @@ The current DaisySeries family now includes:
 - Game modes
 - Particles
 - Statistics
+
+## What comes next
+
+The next DaisySeries implementation wave is not open-ended. The current audit direction is:
+
+- **Next-wave candidates**: villager professions, attributes, difficulties, and block faces
+- **Likely later**: damage causes, operations, and pattern types
+- **Currently out of scope unless a strong need appears**: world types and broad legacy compatibility helpers
+
+See [DAISYSERIES_FINAL_GOAL.md](./DAISYSERIES_FINAL_GOAL.md) for the reasoning and guardrails.
 
 ## Vision
 

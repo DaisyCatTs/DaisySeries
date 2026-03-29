@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+### Planned
+- gap audit for the next modern parser wave
+- release follow-up docs comparing DaisySeries to local helper glue and XSeries-style usage
+
+## [0.2.0]
+
 ### Added
 - `series-enchantment`
 - `series-potion`
@@ -11,8 +17,14 @@
 - DaisySeries example updates for enchantments and potion effects
 - DaisySeries example updates for biomes, entity types, game modes, particles, and statistics
 - DaisySeries docs coverage for enchantments, potions, and the expanded modern module family
+- DaisyConfig codec integration for the expanded DaisySeries parser family
+
+### Changed
+- DaisySeries now positions itself as a modern Paper-first parsing layer instead of a legacy compatibility helper
+- runtime notes now explicitly call out registry-backed parser behavior where live Paper resolution is required
 
 ## [0.1.0-SNAPSHOT]
+
 ### Added
 - DaisySeries repo skeleton
 - `series-base`
