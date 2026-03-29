@@ -53,3 +53,18 @@ val key = DaisyMaterials.key(material)
 
 `key(...)` is the stable config-safe serialization form. Aliases are accepted on input only.
 
+## Add enchantment parsing
+
+Instead of plugin-local enchantment helper maps:
+
+```kotlin
+val enchantment = DaisyEnchantments.parse(config.enchantment)
+```
+
+## Add potion-effect parsing
+
+Instead of local potion-effect wrappers:
+
+```kotlin
+val effect = DaisyPotions.parse(config.effect)
+```
