@@ -33,6 +33,8 @@ dependencies {
 }
 ```
 
+`0.1.0-SNAPSHOT` is intentional right now. DaisySeries is still in the suite polish phase while the product story, migration guidance, and cross-product examples are being tightened around the current modern Paper surface.
+
 Or install a narrower module:
 
 ```kotlin
@@ -104,6 +106,8 @@ That means their successful parsing path is intended for real plugin execution o
 
 The first snapshot is modern Paper-first on purpose.
 
+That also means DaisySeries is not trying to win by recreating every legacy-era XSeries edge. The target is the modern Minecraft parsing layer you actually want to build on now.
+
 ## Example plugin
 
 See [`example-plugin`](./example-plugin) for a small copyable Paper example using the starter-pack modules together.
@@ -127,7 +131,7 @@ The current DaisySeries family now includes:
 ## Related Projects
 
 - [DaisyCore](https://github.com/DaisyCatTs/DaisyCore): the Kotlin-first Paper runtime platform for commands, menus, sidebars, tablists, and shared text
-- [DaisyConfig](https://github.com/DaisyCatTs/DaisyConfig): typed YAML config loading and DaisyCore-friendly text/config integration
+- [DaisyConfig](https://github.com/DaisyCatTs/DaisyConfig): typed YAML, managed lifecycle, module bundles, and DaisyCore-friendly text/config integration
 
 ## License
 
