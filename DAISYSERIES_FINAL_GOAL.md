@@ -56,6 +56,9 @@ Implemented now:
 - `series-game-mode`
 - `series-difficulty`
 - `series-blockface`
+- `series-damage-cause`
+- `series-operation`
+- `series-pattern-type`
 - `series-particle`
 - `series-statistic`
 - `series-all`
@@ -69,17 +72,16 @@ The next DaisySeries wave should stay focused on modern Paper parser families th
 
 These are the strongest current candidates for the next implementation wave:
 
-- `series-damage-cause`
-- `series-operation`
-- `series-pattern-type`
+- `series-world-type`
+- `series-villager-type`
+- `series-map-cursor-type`
 
 ### Tier B: plausible later candidates
 
 These still fit DaisySeries, but they are weaker follow-ups than Tier A:
 
-- `series-world-type`
-- `series-villager-type`
-- `series-map-cursor-type`
+- `series-damage-source`
+- `series-advancement-frame`
 
 ### Tier C: intentionally out of scope for now
 
