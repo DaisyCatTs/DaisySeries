@@ -16,6 +16,8 @@ This first snapshot ships a starter pack for:
 - Materials
 - Sounds
 - Item flags
+- Enchantments
+- Potions
 
 ## Installation
 
@@ -37,6 +39,8 @@ Or install a narrower module:
 implementation("cat.daisy:series-material:0.1.0-SNAPSHOT")
 implementation("cat.daisy:series-sound:0.1.0-SNAPSHOT")
 implementation("cat.daisy:series-itemflag:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-enchantment:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-potion:0.1.0-SNAPSHOT")
 ```
 
 ## Quick example
@@ -45,10 +49,14 @@ implementation("cat.daisy:series-itemflag:0.1.0-SNAPSHOT")
 val icon = DaisyMaterials.parse("diamond sword")
 val sound = DaisySounds.parse("entity player levelup")
 val flags = DaisyItemFlags.parseMany(listOf("hide enchants", "hide attributes"))
+val enchantment = DaisyEnchantments.parse("sharpness")
+val effect = DaisyPotions.parse("slow falling")
 
 logger.info("Icon: ${DaisyMaterials.displayName(icon)} (${DaisyMaterials.key(icon)})")
 logger.info("Sound: ${DaisySounds.displayName(sound)}")
 logger.info("Flags: ${flags.joinToString { DaisyItemFlags.displayName(it) }}")
+logger.info("Enchant: ${DaisyEnchantments.displayName(enchantment)}")
+logger.info("Effect: ${DaisyPotions.displayName(effect)}")
 ```
 
 ## Parsing rules
@@ -66,6 +74,13 @@ Examples:
 - `diamond sword`
 - `diamond-sword`
 - `minecraft:diamond_sword`
+- `sharpness`
+- `slow_falling`
+
+## Runtime note
+
+`DaisyEnchantments` and `DaisyPotions` resolve against the live Paper registry at runtime.
+That means their successful parsing path is intended for real plugin execution on Paper, while plain JVM unit tests cover the normalization, suggestion, and fail-soft behavior around those modules.
 
 ## What DaisySeries does not do
 
@@ -80,14 +95,16 @@ The first snapshot is modern Paper-first on purpose.
 
 See [`example-plugin`](./example-plugin) for a small copyable Paper example using the starter-pack modules together.
 
-## Roadmap
+## Module family
 
-Planned next modules after the starter pack:
+The current DaisySeries family now includes:
 
+- Materials
+- Sounds
+- Item flags
 - Enchantments
 - Potions
 
 ## License
 
 MIT
-

@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+### Added
+- `series-enchantment`
+- `series-potion`
+- DaisySeries example updates for enchantments and potion effects
+- DaisySeries docs coverage for enchantments and potions
+
 ## [0.1.0-SNAPSHOT]
 ### Added
 - DaisySeries repo skeleton
@@ -10,4 +16,3 @@
 - `series-all`
 - example plugin
 - README and migration docs
-
