@@ -1,8 +1,22 @@
 ## [Unreleased]
 
 ### Planned
-- next parser-wave evaluation around damage causes, operations, and pattern types
+- next parser-wave evaluation around world types, villager types, and map cursor types
 - more cross-product examples using the expanded parser family
+
+## [0.4.0]
+
+### Added
+- `series-damage-cause`
+- `series-operation`
+- `series-pattern-type`
+- DaisySeries example updates for damage causes, operations, and pattern types
+- DaisyConfig codec integration for damage causes, operations, and pattern types
+- DaisySeries docs, dictionary pages, and API references for the third-wave parser family
+
+### Changed
+- public suite docs now describe DaisySeries as the broader modern parser layer it already is
+- the DaisySeries gap audit now moves damage causes, operations, and pattern types into the shipped surface
 
 ## [0.3.0]
 

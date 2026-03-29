@@ -3,13 +3,16 @@ package cat.daisy.series.example
 import cat.daisy.series.attribute.DaisyAttributes
 import cat.daisy.series.biome.DaisyBiomes
 import cat.daisy.series.blockface.DaisyBlockFaces
+import cat.daisy.series.damagecause.DaisyDamageCauses
 import cat.daisy.series.difficulty.DaisyDifficulties
 import cat.daisy.series.itemflag.DaisyItemFlags
 import cat.daisy.series.enchantment.DaisyEnchantments
 import cat.daisy.series.entity.DaisyEntities
 import cat.daisy.series.gamemode.DaisyGameModes
 import cat.daisy.series.material.DaisyMaterials
+import cat.daisy.series.operation.DaisyOperations
 import cat.daisy.series.particle.DaisyParticles
+import cat.daisy.series.patterntype.DaisyPatternTypes
 import cat.daisy.series.potion.DaisyPotions
 import cat.daisy.series.sound.DaisySounds
 import cat.daisy.series.statistic.DaisyStatistics
@@ -45,6 +48,9 @@ class ProfileLoadoutCommand : CommandExecutor {
         val attribute = DaisyAttributes.parse(ExampleSeriesConfig.attribute)
         val difficulty = DaisyDifficulties.parse(ExampleSeriesConfig.difficulty)
         val blockFace = DaisyBlockFaces.parse(ExampleSeriesConfig.blockFace)
+        val damageCause = DaisyDamageCauses.parse(ExampleSeriesConfig.damageCause)
+        val operation = DaisyOperations.parse(ExampleSeriesConfig.attributeOperation)
+        val patternType = DaisyPatternTypes.parse(ExampleSeriesConfig.bannerPattern)
 
         sender.sendMessage("Icon: ${DaisyMaterials.displayName(icon)} (${DaisyMaterials.key(icon)})")
         sender.sendMessage("Sound: ${DaisySounds.displayName(sound)} (${DaisySounds.key(sound)})")
@@ -60,6 +66,9 @@ class ProfileLoadoutCommand : CommandExecutor {
         sender.sendMessage("Attribute: ${DaisyAttributes.displayName(attribute)} (${DaisyAttributes.key(attribute)})")
         sender.sendMessage("Difficulty: ${DaisyDifficulties.displayName(difficulty)} (${DaisyDifficulties.key(difficulty)})")
         sender.sendMessage("Facing: ${DaisyBlockFaces.displayName(blockFace)} (${DaisyBlockFaces.key(blockFace)})")
+        sender.sendMessage("Damage cause: ${DaisyDamageCauses.displayName(damageCause)} (${DaisyDamageCauses.key(damageCause)})")
+        sender.sendMessage("Operation: ${DaisyOperations.displayName(operation)} (${DaisyOperations.key(operation)})")
+        sender.sendMessage("Banner pattern: ${DaisyPatternTypes.displayName(patternType)} (${DaisyPatternTypes.key(patternType)})")
         return true
     }
 }

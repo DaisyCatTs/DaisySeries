@@ -25,6 +25,9 @@ This release ships a broader modern parsing pack for:
 - Game modes
 - Difficulties
 - Block faces
+- Damage causes
+- Operations
+- Pattern types
 - Particles
 - Statistics
 
@@ -38,29 +41,32 @@ repositories {
 }
 
 dependencies {
-    implementation("cat.daisy:DaisySeries:0.3.0")
+    implementation("cat.daisy:DaisySeries:0.4.0")
 }
 ```
 
-DaisySeries `0.3.0` is the second formal release of the modern parser surface. It is meant to be the focused modern Paper alternative to plugin-local enum glue and XSeries-style parsing helpers, not a legacy compatibility museum.
+DaisySeries `0.4.0` is the next formal release of the modern parser surface. It stays focused on the useful modern Paper families that genuinely benefit from canonical keys and normalization, not on turning into a giant legacy compatibility museum.
 
 Or install a narrower module:
 
 ```kotlin
-implementation("cat.daisy:series-material:0.3.0")
-implementation("cat.daisy:series-sound:0.3.0")
-implementation("cat.daisy:series-itemflag:0.3.0")
-implementation("cat.daisy:series-enchantment:0.3.0")
-implementation("cat.daisy:series-potion:0.3.0")
-implementation("cat.daisy:series-biome:0.3.0")
-implementation("cat.daisy:series-villager-profession:0.3.0")
-implementation("cat.daisy:series-attribute:0.3.0")
-implementation("cat.daisy:series-entity:0.3.0")
-implementation("cat.daisy:series-game-mode:0.3.0")
-implementation("cat.daisy:series-difficulty:0.3.0")
-implementation("cat.daisy:series-blockface:0.3.0")
-implementation("cat.daisy:series-particle:0.3.0")
-implementation("cat.daisy:series-statistic:0.3.0")
+implementation("cat.daisy:series-material:0.4.0")
+implementation("cat.daisy:series-sound:0.4.0")
+implementation("cat.daisy:series-itemflag:0.4.0")
+implementation("cat.daisy:series-enchantment:0.4.0")
+implementation("cat.daisy:series-potion:0.4.0")
+implementation("cat.daisy:series-biome:0.4.0")
+implementation("cat.daisy:series-villager-profession:0.4.0")
+implementation("cat.daisy:series-attribute:0.4.0")
+implementation("cat.daisy:series-entity:0.4.0")
+implementation("cat.daisy:series-game-mode:0.4.0")
+implementation("cat.daisy:series-difficulty:0.4.0")
+implementation("cat.daisy:series-blockface:0.4.0")
+implementation("cat.daisy:series-damage-cause:0.4.0")
+implementation("cat.daisy:series-operation:0.4.0")
+implementation("cat.daisy:series-pattern-type:0.4.0")
+implementation("cat.daisy:series-particle:0.4.0")
+implementation("cat.daisy:series-statistic:0.4.0")
 ```
 
 ## Quick example
@@ -78,6 +84,9 @@ val entity = DaisyEntities.parse("zombie villager")
 val gameMode = DaisyGameModes.parse("surv")
 val difficulty = DaisyDifficulties.parse("hard")
 val blockFace = DaisyBlockFaces.parse("north-east")
+val damageCause = DaisyDamageCauses.parse("entity attack")
+val operation = DaisyOperations.parse("multiply scalar 1")
+val patternType = DaisyPatternTypes.parse("straight cross")
 val particle = DaisyParticles.parse("totem")
 val statistic = DaisyStatistics.parse("player kills")
 
@@ -87,6 +96,9 @@ logger.info("Profession: ${DaisyVillagerProfessions.displayName(profession)}")
 logger.info("Attribute: ${DaisyAttributes.displayName(attribute)}")
 logger.info("Difficulty: ${DaisyDifficulties.displayName(difficulty)}")
 logger.info("Facing: ${DaisyBlockFaces.displayName(blockFace)}")
+logger.info("Damage cause: ${DaisyDamageCauses.displayName(damageCause)}")
+logger.info("Operation: ${DaisyOperations.displayName(operation)}")
+logger.info("Banner pattern: ${DaisyPatternTypes.displayName(patternType)}")
 ```
 
 ## IntelliJ Setup
@@ -120,6 +132,9 @@ Examples:
 - `attack_damage`
 - `tool smith`
 - `north-east`
+- `entity attack`
+- `multiply scalar 1`
+- `straight cross`
 
 ## Runtime note
 
@@ -132,6 +147,7 @@ Some modern Paper families are registry-sensitive enough that successful parsing
 - biomes
 - villager professions
 - attributes
+- pattern types
 
 That means DaisySeries keeps unit tests focused on normalization, suggestions, and fail-soft behavior where Paper bootstrap is not available.
 
@@ -166,18 +182,21 @@ The current DaisySeries family now includes:
 - Game modes
 - Difficulties
 - Block faces
+- Damage causes
+- Operations
+- Pattern types
 - Particles
 - Statistics
 
 ## What comes next
 
-The next DaisySeries implementation wave is smaller and more selective. The current likely follow-ups are:
+The next DaisySeries implementation wave should stay smaller and more selective. The current likely follow-ups after this release are:
 
-- damage causes
-- operations
-- pattern types
+- world types
+- villager types
+- map cursor types
 
-These are plausible additions. They are not automatic. DaisySeries should only keep growing where canonical keys and normalization materially improve real plugin code.
+These are candidates, not promises. DaisySeries should only keep growing where canonical keys and normalization materially improve real plugin code.
 
 ## Vision
 

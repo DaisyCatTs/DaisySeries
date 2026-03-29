@@ -33,6 +33,9 @@ include(
     "series-attribute",
     "series-difficulty",
     "series-blockface",
+    "series-damage-cause",
+    "series-operation",
+    "series-pattern-type",
     "series-all",
     "example-plugin",
 )

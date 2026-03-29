@@ -159,6 +159,30 @@ project(":series-blockface") {
     }
 }
 
+project(":series-damage-cause") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-operation") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
+project(":series-pattern-type") {
+    dependencies {
+        add("api", project(":series-base"))
+        add("compileOnly", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+        add("testImplementation", "io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    }
+}
+
 project(":series-all") {
     dependencies {
         add("api", project(":series-material"))
@@ -175,6 +199,9 @@ project(":series-all") {
         add("api", project(":series-attribute"))
         add("api", project(":series-difficulty"))
         add("api", project(":series-blockface"))
+        add("api", project(":series-damage-cause"))
+        add("api", project(":series-operation"))
+        add("api", project(":series-pattern-type"))
     }
 }
 

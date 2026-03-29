@@ -82,6 +82,23 @@ val particle = DaisyParticles.parse(config.particle)
 val statistic = DaisyStatistics.parse(config.statistic)
 ```
 
+## Add villager-profession, attribute, difficulty, and block-face parsing
+
+```kotlin
+val profession = DaisyVillagerProfessions.parse(config.profession)
+val attribute = DaisyAttributes.parse(config.attribute)
+val difficulty = DaisyDifficulties.parse(config.difficulty)
+val facing = DaisyBlockFaces.parse(config.facing)
+```
+
+## Add damage-cause, operation, and banner-pattern parsing
+
+```kotlin
+val damageCause = DaisyDamageCauses.parse(config.damageCause)
+val operation = DaisyOperations.parse(config.operation)
+val patternType = DaisyPatternTypes.parse(config.pattern)
+```
+
 ## Why DaisySeries instead of XSeries-style glue
 
 For modern Minecraft, DaisySeries is trying to win on:
@@ -118,14 +135,20 @@ DaisySeries already covers the modern parser families most config-heavy plugins 
 - enchantments
 - potion effects
 - biomes
+- villager professions
+- attributes
 - entity types
 - game modes
+- difficulties
+- block faces
+- damage causes
+- operations
+- pattern types
 - particles
 - statistics
 
 The next-wave shortlist is intentionally smaller than "everything XSeries ever touched." Right now the strongest follow-up candidates are:
 
-- villager professions
-- attributes
-- difficulties
-- block faces
+- world types
+- villager types
+- map cursor types
