@@ -105,6 +105,12 @@ The current DaisySeries family now includes:
 - Enchantments
 - Potions
 
+## Vision
+
+- Final product direction: [DAISYSERIES_FINAL_GOAL.md](./DAISYSERIES_FINAL_GOAL.md)
+- Migration guide: [MIGRATION.md](./MIGRATION.md)
+- Changelog: [CHANGELOG.md](./CHANGELOG.md)
+
 ## License
 
 MIT
