@@ -3,8 +3,14 @@
 ### Added
 - `series-enchantment`
 - `series-potion`
+- `series-biome`
+- `series-entity`
+- `series-game-mode`
+- `series-particle`
+- `series-statistic`
 - DaisySeries example updates for enchantments and potion effects
-- DaisySeries docs coverage for enchantments and potions
+- DaisySeries example updates for biomes, entity types, game modes, particles, and statistics
+- DaisySeries docs coverage for enchantments, potions, and the expanded modern module family
 
 ## [0.1.0-SNAPSHOT]
 ### Added

@@ -24,6 +24,11 @@ include(
     "series-itemflag",
     "series-enchantment",
     "series-potion",
+    "series-biome",
+    "series-entity",
+    "series-game-mode",
+    "series-particle",
+    "series-statistic",
     "series-all",
     "example-plugin",
 )

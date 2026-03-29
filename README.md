@@ -11,13 +11,18 @@ DaisySeries removes the boring helper layer every plugin ends up rebuilding for 
 - expose UI-friendly display names
 - support a small curated alias set where it genuinely helps
 
-This first snapshot ships a starter pack for:
+This snapshot now ships a broader modern parsing pack for:
 
 - Materials
 - Sounds
 - Item flags
 - Enchantments
 - Potions
+- Biomes
+- Entity types
+- Game modes
+- Particles
+- Statistics
 
 ## Installation
 
@@ -43,6 +48,11 @@ implementation("cat.daisy:series-sound:0.1.0-SNAPSHOT")
 implementation("cat.daisy:series-itemflag:0.1.0-SNAPSHOT")
 implementation("cat.daisy:series-enchantment:0.1.0-SNAPSHOT")
 implementation("cat.daisy:series-potion:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-biome:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-entity:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-game-mode:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-particle:0.1.0-SNAPSHOT")
+implementation("cat.daisy:series-statistic:0.1.0-SNAPSHOT")
 ```
 
 ## Quick example
@@ -53,12 +63,22 @@ val sound = DaisySounds.parse("entity player levelup")
 val flags = DaisyItemFlags.parseMany(listOf("hide enchants", "hide attributes"))
 val enchantment = DaisyEnchantments.parse("sharpness")
 val effect = DaisyPotions.parse("slow falling")
+val biome = DaisyBiomes.parse("cherry grove")
+val entity = DaisyEntities.parse("zombie villager")
+val gameMode = DaisyGameModes.parse("surv")
+val particle = DaisyParticles.parse("totem")
+val statistic = DaisyStatistics.parse("player kills")
 
 logger.info("Icon: ${DaisyMaterials.displayName(icon)} (${DaisyMaterials.key(icon)})")
 logger.info("Sound: ${DaisySounds.displayName(sound)}")
 logger.info("Flags: ${flags.joinToString { DaisyItemFlags.displayName(it) }}")
 logger.info("Enchant: ${DaisyEnchantments.displayName(enchantment)}")
 logger.info("Effect: ${DaisyPotions.displayName(effect)}")
+logger.info("Biome: ${DaisyBiomes.displayName(biome)}")
+logger.info("Entity: ${DaisyEntities.displayName(entity)}")
+logger.info("Game mode: ${DaisyGameModes.displayName(gameMode)}")
+logger.info("Particle: ${DaisyParticles.displayName(particle)}")
+logger.info("Statistic: ${DaisyStatistics.displayName(statistic)}")
 ```
 
 ## IntelliJ Setup
@@ -121,6 +141,11 @@ The current DaisySeries family now includes:
 - Item flags
 - Enchantments
 - Potions
+- Biomes
+- Entity types
+- Game modes
+- Particles
+- Statistics
 
 ## Vision
 

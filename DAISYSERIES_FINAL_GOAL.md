@@ -49,20 +49,20 @@ Implemented now:
 - `series-itemflag`
 - `series-enchantment`
 - `series-potion`
+- `series-biome`
+- `series-entity`
+- `series-game-mode`
+- `series-particle`
+- `series-statistic`
 - `series-all`
 - `series-base`
 
 ## Expected Future Module Family
 
-Likely next DaisySeries candidates:
+Still plausible next DaisySeries candidates:
 
-- `series-biome`
-- `series-entity`
 - `series-villager-profession`
-- `series-game-mode`
 - `series-damage-cause`
-- `series-particle`
-- `series-statistic`
 
 Potential second wave if there is real reuse:
 
